@@ -12,7 +12,7 @@ if [ $? -eq 0 ]; then
 else
 	read -p "Isikan password akun [$username]: " password
 	read -p "Berapa hari akun [$username] aktif: " masa_aktif
-exp=`date -d "$masaaktif days" +"%Y-%m-%d"
+exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 
 export MENU_OPTION="1"
 export CLIENT="$username"
