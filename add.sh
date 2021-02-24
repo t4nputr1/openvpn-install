@@ -12,7 +12,11 @@ if [ $? -eq 0 ]; then
 else
 	read -p "Isikan password akun [$username]: " password
 	read -p "Berapa hari akun [$username] aktif: " masa_aktif
-exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
+today=`date +%s`
+masa_aktif_detik=$(( $masa_aktif * 86400 ))
+saat_expired=$(($today + $masa_aktif_detik))
+tanggal_expired=$(date -u --date="1970-01-01 $saat_expired sec GMT" +%Y/%m/%d)
+tanggal_expired_display=$(date -u --date="1970-01-01 $saat_expired sec GMT" '+%d %B %Y')
 
 export MENU_OPTION="1"
 export CLIENT="$username"
@@ -30,7 +34,7 @@ DETAIL AKUN OPENVPN
 Server IP    : $MYIP
 Username     : $username
 Password     : $password
-Aktif Sampai : $exp
+Aktif Sampai : $tanggal_expired_display
 Config       : http://MYIP:81/client/$username.ovpn
 ================================="
 echo ""
