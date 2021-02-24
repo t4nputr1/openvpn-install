@@ -12,8 +12,6 @@ if [ $? -eq 0 ]; then
 else
 	read -p "Isikan password akun [$username]: " password
 	read -p "Berapa hari akun [$username] aktif: " masa_aktif
-MYIP=$(wget -qO- ipv4.icanhazip.com)
-today=`date +%s`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"
 
 export MENU_OPTION="1"
