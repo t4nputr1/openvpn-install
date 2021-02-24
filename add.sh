@@ -1,8 +1,13 @@
 #!/bin/bash
 
+if [[ $USER != 'root' ]]; then
+	echo "Maaf, Anda harus menjalankan ini sebagai root"
+	exit
+fi
+clear
+
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
-clear
 
 read -p "Isikan Client User: " username
 read -p "Isikan password akun [$username]: " password
