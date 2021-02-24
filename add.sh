@@ -37,3 +37,4 @@ echo "Password     : $password"
 echo "Aktif Sampai : $tanggal_expired_display"
 echo "Config       : http://MYIP:81/client/$username.ovpn"
 echo "================================="
+fi
