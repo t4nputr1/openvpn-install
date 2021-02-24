@@ -27,14 +27,13 @@ mv $username.ovpn /etc/openvpn/client
 mkdir -p /home/vps/public_html/client
 cp /etc/openvpn/client/$username.ovpn /home/vps/public_html/client
 clear
-echo "
-=================================
-DETAIL AKUN OPENVPN 
----------------------------------
-Server IP    : $MYIP
-Username     : $username
-Password     : $password
-Aktif Sampai : $tanggal_expired_display
-Config       : http://MYIP:81/client/$username.ovpn
-================================="
-echo ""
+
+echo "================================="
+echo "DETAIL AKUN OPENVPN "
+echo "---------------------------------"
+echo "Server IP    : $MYIP"
+echo "Username     : $username"
+echo "Password     : $password"
+echo "Aktif Sampai : $tanggal_expired_display"
+echo "Config       : http://MYIP:81/client/$username.ovpn"
+echo "================================="
