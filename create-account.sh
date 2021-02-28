@@ -28,7 +28,7 @@ export MENU_OPTION="1"; export CLIENT="$username"; export PASS="$password"; bash
 
 clear
 
-cat <<EOF
+cat << EOF
 =================================
       DETAIL AKUN OPENVPN
 ---------------------------------
