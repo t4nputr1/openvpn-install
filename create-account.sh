@@ -12,10 +12,6 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 echo ""
 read -p "Isikan Client User: " username
 egrep "^$username" /etc/openvpn/akun.conf >/dev/null
-if [ $? -eq 0 ]; then
-	echo "Username [$username] is available , try another Username!"
-	exit 1
-else
 read -p "Isikan password [$username]: " password
 read -p "Berapa hari account [$username] aktif: " AKTIF
 
