@@ -11,16 +11,7 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 echo ""
 
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -p "Isikan Client User: " username
-		CLIENT_EXISTS=$(grep -c -E "^### $username\$" "/etc/openvpn/akun.conf")
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "Client [$username] is available , try another Username"
-			echo ""
-		fi
-	done
+read -p "Isikan Client User: " username
 read -p "Isikan password [$username]: " password
 read -p "Berapa hari account [$username] aktif: " AKTIF
 
