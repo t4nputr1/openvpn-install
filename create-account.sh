@@ -10,8 +10,18 @@ echo -e "\n " >> /etc/openvpn/akun.conf
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
-echo ""
-read -p "Isikan Client User: " username
+echo "Masukkan Nama User"
+
+until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
+		read -rp "User: " -e username
+		CLIENT_EXISTS=$(grep -c -E "^### $username\$" "/etc/openvpn/akun.conf")
+
+		if [[ ${CLIENT_EXISTS} == '1' ]]; then
+			echo ""
+			echo "Akun sudah ada, silahkan masukkan username lain."
+			echo ""
+		fi
+	done
 read -p "Isikan password [$username]: " password
 read -p "Berapa hari account [$username] aktif: " AKTIF
 sleep 2
