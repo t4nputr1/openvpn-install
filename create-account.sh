@@ -33,4 +33,4 @@ Password  : $password
 Port      : 443
 Aktif s/d : $(date -d "$AKTIF days" +"%d-%m-%Y")
 =================================
-Config    :  /root/$username.ovpn "
+Config    :  /root/$username.ovpn"
