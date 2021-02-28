@@ -24,7 +24,7 @@ export MENU_OPTION="1"; export CLIENT="$username"; export PASS="$password"; bash
 
 clear
 
-cat << EOF
+echo "
 =================================
       DETAIL AKUN OPENVPN
 ---------------------------------
@@ -34,5 +34,4 @@ Password  : $password
 Port      : 443
 Aktif s/d : $(date -d "$AKTIF days" +"%d-%m-%Y")
 =================================
-Config    :  /root/$username.ovpn
-EOF
+Config    :  /root/$username.ovpn "
