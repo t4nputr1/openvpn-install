@@ -6,9 +6,20 @@ if [[ $USER != 'root' ]]; then
 fi
 clear
 
-CLIENT_NAME=$(grep -c -E "^### " "/etc/openvpn/akun.conf")
-echo "Input existing client you want to revoke"
-grep -E "^### " "/etc/openvpn/akun.conf" | cut -d ' ' -f 2-3 | nl -s ') '
+echo "-----------------------------------"
+echo "USERNAME              EXP DATE     "
+echo "-----------------------------------"
+
+while read expired
+do
+	AKUN="$(echo $expired | cut -d: -f1)"
+	ID="$(echo $expired | grep -v nobody | cut -d: -f3)"
+	exp="$(chage -l $AKUN | grep "Account expires" | awk -F": " '{print $2}')"
+	if [[ $ID -ge 1000 ]]; then
+		printf "%-21s %2s\n" "$AKUN" "$exp"
+	fi
+done < /etc/openvpn/akun.conf
+echo "-----------------------------------"
 read -p "Enter username to delete: " username
 
 egrep "^$username" /etc/openvpn/akun.conf >/dev/null
