@@ -18,6 +18,8 @@ echo "-----------------------------------"
 echo "NO  -  USERNAME   -   EXP DATE     "
 echo "-----------------------------------"
 grep -E "^### " "/etc/openvpn/akun.conf" | cut -d ' ' -f 2-3 | nl -s ') '
+echo ""
+echo "-----------------------------------"
 read -p "Enter username to delete: " username
 
 # match the selected number to a client name
