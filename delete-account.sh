@@ -24,5 +24,5 @@ sed -i "/^### $CLIENT_NAME\$/,/^$/d" "/etc/openvpn/akun.conf"
 
 cd /etc/openvpn/easy-rsa/ || return; ./easyrsa --batch revoke "$username"; EASYRSA_CRL_DAYS=3650 ./easyrsa gen-crl; rm -f /etc/openvpn/crl.pem; cp /etc/openvpn/easy-rsa/pki/crl.pem /etc/openvpn/crl.pem; chmod 644 /etc/openvpn/crl.pem; find /home/ -maxdepth 2 -name "$username.ovpn" -delete; rm -f "/root/$username.ovpn"; sed -i "/^$username,.*/d" /etc/openvpn/ipp.txt;
 service openvpn restart
-clear
+echo ""
 echo " Succesfully to Delete $username "
