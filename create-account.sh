@@ -5,6 +5,7 @@ if [[ $USER != 'root' ]]; then
 	exit
 fi
 clear
+echo -e "\n " >> /etc/openvpn/akun.conf
 
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
@@ -18,6 +19,7 @@ expire=$(date -d "$AKTIF days" +"%Y-%m-%d")
 
 export MENU_OPTION="1"; export CLIENT="$username"; export PASS="$password"; bash openvpn-install.sh &> /dev/null;
 
+echo -e "\n### $username $(date -d "$AKTIF days" +"%d-%m-%Y")">>"/etc/openvpn/akun.conf"
 clear
 
 cat <<EOF
