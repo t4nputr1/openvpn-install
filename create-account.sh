@@ -9,12 +9,12 @@ echo -e "\n " >> /etc/openvpn/akun.conf
 
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
-echo ""
 
+echo ""
 read -p "Isikan Client User: " username
 read -p "Isikan password [$username]: " password
 read -p "Berapa hari account [$username] aktif: " AKTIF
-
+sleep 2
 today="$(date +"%Y-%m-%d")"
 expire=$(date -d "$AKTIF days" +"%Y-%m-%d")
 echo -e "\n### $username $(date -d "$AKTIF days" +"%d-%m-%Y")">>"/etc/openvpn/akun.conf"
