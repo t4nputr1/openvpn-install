@@ -14,6 +14,9 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/openvpn/akun.conf")
 	fi
 echo ""
 echo "Input the existing client you want to revoke"
+echo "-----------------------------------"
+echo "NO  -  USERNAME   -   EXP DATE     "
+echo "-----------------------------------"
 grep -E "^### " "/etc/openvpn/akun.conf" | cut -d ' ' -f 2-3 | nl -s ') '
 read -p "Enter username to delete: " username
 
