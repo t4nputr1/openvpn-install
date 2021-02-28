@@ -12,7 +12,7 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 echo "Masukkan Nama User"
 
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
+until [[ $username =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -rp "User: " -e username
 		CLIENT_EXISTS=$(grep -c -E "^### $username\$" "/etc/openvpn/akun.conf")
 
